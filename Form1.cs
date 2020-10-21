@@ -23,8 +23,8 @@ namespace DATABASE
         private void Form1_Load(object sender, EventArgs e)
         {
             MostrarUsuarios();
-            string Connect = "datasource=localhost;port=3306;username=root;password=;database=user;";
-            string query = "SELECT * FROM test";
+            string Connect = "datasource=localhost;port=3306;username=root;password=;database=alumnos;";
+            string query = "SELECT * FROM user";
             MySqlConnection databaseConnection = new MySqlConnection(Connect);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -48,7 +48,7 @@ namespace DATABASE
                 }
                 else
                 {
-                    Console.WriteLine("No hay datos papu :( ");
+                    Console.WriteLine("No existen los datos amix :o ");
 
                 }
                 databaseConnection.Close();
@@ -61,8 +61,8 @@ namespace DATABASE
         }
         private void Eliminar()
         {
-            string Connect = "datasource=localhost;port=3306;username=root;password=;database=user;";
-            string query = "DELETE FROM `test` WHERE id = '" + textBox4.Text + "' ";
+            string Connect = "datasource=localhost;port=3306;username=root;password=;database=alumnos;";
+            string query = "DELETE FROM `user` WHERE id = '" + textBox4.Text + "' ";
             MySqlConnection databaseConnection = new MySqlConnection(Connect);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -71,7 +71,7 @@ namespace DATABASE
 
                 databaseConnection.Open();
                 MySqlDataReader myReader = commandDatabase.ExecuteReader();
-                MessageBox.Show("Dato Eliminado D:");
+                MessageBox.Show("Los datos han sido eliminados amix :c");
                 MostrarUsuarios();
                 databaseConnection.Close();
                 textBox1.Text = "";
@@ -85,8 +85,8 @@ namespace DATABASE
         }
        private void Actualizar()
         {
-            string Connect = "datasource=localhost;port=3306;username=root;password=;database=user;";
-            string query = "UPDATE `test` SET `first_name`='"+textBox1.Text+ "',`last_name`='"+textBox2.Text+ "',`address`='"+textBox3.Text+"' WHERE id = '"+textBox4.Text+"' ";//Modificar
+            string Connect = "datasource=localhost;port=3306;username=root;password=;database=alumnos;";
+            string query = "UPDATE `user` SET `first_name`='"+textBox1.Text+ "',`last_name`='"+textBox2.Text+ "',`address`='"+textBox3.Text+"' WHERE id = '"+textBox4.Text+"' ";//Modificar
             MySqlConnection databaseConnection = new MySqlConnection(Connect);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -95,7 +95,7 @@ namespace DATABASE
 
                 databaseConnection.Open();
                 MySqlDataReader myReader = commandDatabase.ExecuteReader();
-                MessageBox.Show("Dato Actualizado :D");
+                MessageBox.Show("Ha actualizado con exito brou");
                 databaseConnection.Close();
                 textBox1.Text = "";
                 textBox2.Text = "";
@@ -109,7 +109,7 @@ namespace DATABASE
 
         private void Buscar()
         {
-            string Connect = "datasource=localhost;port=3306;username=root;password=;database=user;";
+            string Connect = "datasource=localhost;port=3306;username=root;password=;database=alumnos;";
             string query = "SELECT * FROM user where id= '"+textBox4.Text+"' ";
             MySqlConnection databaseConnection = new MySqlConnection(Connect);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -138,7 +138,7 @@ namespace DATABASE
                 }
                 else
                 {
-                    Console.WriteLine("No se encontro nada");
+                    Console.WriteLine("No existe nada");
                 }
                 databaseConnection.Close();
             }
@@ -150,8 +150,8 @@ namespace DATABASE
         }
         private void GuardarUsuario()
         {
-            string Connect = "datasource=localhost;port=3306;username=root;password=;database=user;";
-            string query = "INSERT INTO test(`id`, `first_name`, `last_name`, `address`) VALUES (NULL, '" + textBox1.Text + "', '" + textBox2.Text + "', '" + textBox3.Text + "')";
+            string Connect = "datasource=localhost;port=3306;username=root;password=;database=alumnos;";
+            string query = "INSERT INTO user(`id`, `first_name`, `last_name`, `address`) VALUES (NULL, '" + textBox1.Text + "', '" + textBox2.Text + "', '" + textBox3.Text + "')";
             MySqlConnection databaseConnection = new MySqlConnection(Connect);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -161,7 +161,7 @@ namespace DATABASE
                
                 databaseConnection.Open();
                 MySqlDataReader myReader = commandDatabase.ExecuteReader();
-                MessageBox.Show("Lograste insertar el usuario, eres un crack");
+                MessageBox.Show("Usuario insertado amix");
                 databaseConnection.Close();
 
             }
@@ -173,8 +173,8 @@ namespace DATABASE
 
         private void MostrarUsuarios()
         {
-            string Connect = "datasource=localhost;port=3306;username=root;password=;database=user;";
-            string query = "SELECT * FROM test";
+            string Connect = "datasource=localhost;port=3306;username=root;password=;database=alumnos;";
+            string query = "SELECT * FROM user";
             MySqlConnection databaseConnection = new MySqlConnection(Connect);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.CommandTimeout = 60;
@@ -227,19 +227,19 @@ namespace DATABASE
             //Parte a Mostrar cuando demuestres insertar dato vacio  
             if (textBox1.Text == "")
             {
-                MessageBox.Show("Te falta el nombre de usuario, ojo aqui man");
+                MessageBox.Show("Te falta el nombre amix");
             }
          else   if (textBox2.Text == "")
             {
-                MessageBox.Show("Te falta el appellido, ojo aqui tambien man");
+                MessageBox.Show("Pon el apellido amix ¬¬");
             }
          else   if (textBox3.Text == "")
             {
-                MessageBox.Show("Te falta la direccion, te digo -.-");
+                MessageBox.Show("¿Y la direccion? °_°");
             }
             else if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
             {
-                MessageBox.Show("Que onda aqui? te faltan los 3 campos :'v ");
+                MessageBox.Show("¿Que onda? te faltannn :> ");
             }
             else
             {
